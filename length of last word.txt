@@ -1,0 +1,21 @@
+length of last word
+class Solution:
+    def lengthOfLastWord(self, s):
+        i = len(s) - 1
+        length = 0
+
+        # Skip trailing spaces
+        while i >= 0 and s[i] == ' ':
+            i -= 1
+
+        # Count last word length
+        while i >= 0 and s[i] != ' ':
+            length += 1
+            i -= 1
+
+        return length
+
+basically, first we assign i at the end of the sentence, so if string is "end of moon" we assign i at n
+now suppose the string is "end of moon " now since there is a space we need to move to the letter n as space is not allowed, so this is what the first while loop does, it discards the spaces 
+now second while loop goes on counting the letters from last index till it finds another space
+then it stops and returns length.
