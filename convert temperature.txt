@@ -1,0 +1,15 @@
+convert temperature
+double* convertTemperature(double celsius, int* returnSize) {
+   double* ans = (double*)malloc(2 * sizeof(double));
+    
+    ans[0] = celsius + 273.15;          
+    ans[1] = celsius * 1.80 + 32.00;   
+    
+    *returnSize = 2;
+    return ans;
+}  
+
+dynamically allocate 2 double values and store it in ans
+now in array first place 0, gets assigned the kelvin value
+second place 1, gets assigned Fahrenheit value
+return it 
