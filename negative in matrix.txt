@@ -1,0 +1,21 @@
+negative in matrix
+int countNegatives(int** grid, int gridSize, int* gridColSize) {
+    int count = 0;
+
+    for (int i = 0; i < gridSize; i++) {
+        for (int j = 0; j < gridColSize[i]; j++) {
+            if (grid[i][j] < 0)
+                count++;
+        }
+    }
+    return count;
+}
+grid = matrix
+gridsize = no. of rows
+gridcolsize = no. of columns
+count variable keeps in track the number of negative numbers in the matrix
+first for loop checks through the first row
+second for loop checks through the second row 
+if statement then checks if the element is non negative
+if yes it increases count value by 1
+ 
