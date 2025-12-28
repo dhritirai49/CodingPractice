@@ -1,0 +1,29 @@
+#include <stdbool.h>
+#include <string.h>
+
+bool isAnagram(char* s, char* t) {
+    int lenS = strlen(s);
+    int lenT = strlen(t);
+    if (lenS != lenT) return false;      // different lengths
+
+    int count[26] = {0};                 // 'a' to 'z'
+
+    for (int i = 0; i < lenS; i++) {
+        count[s[i] - 'a']++;             // count chars in s
+        count[t[i] - 'a']--;             // remove chars from t
+    }
+
+    for (int i = 0; i < 26; i++) {
+        if (count[i] != 0) return false; // mismatch in frequency
+    }
+    return true;
+}
+
+first we take length of S and T and then we make an array of 26 indices with 0 in all places
+we check if length of both strings are equal if yes we continue else we return false
+now, we start a for loop where we update count values by finding differnece between characters of S string and character 'a', this will give us index of that letter suppose its z so then it will be z-a which is 26-1
+25 so we will increase the value at position 25 by 1, so 0 + 1 = 1
+now in second count we do -- operation where we take characters from T string and do the same process, if S and T have the same characters then we will get our original array with 0s, but if not then there will be 
+values pending in the array 
+so this is what we are checking for in the last for loop, if count[i] is not equal to 0 then return false
+else return true
